@@ -431,8 +431,8 @@ class Article(models.Model):
         verbose_name=_('sort order'), blank=True
     )
 
-    title = models.CharField(max_length=200, verbose_name=_('title'), default='', blank=True, null=True)
-    text = models.TextField(verbose_name=_('text'), default='', blank=True, null=True)
+    title = models.CharField(max_length=200, verbose_name=_('title'), default='', blank=True)
+    text = models.TextField(verbose_name=_('text'), default='', blank=True)
 
     url = models.URLField(
         verbose_name=_('link'), blank=True, null=True
