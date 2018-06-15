@@ -1,4 +1,10 @@
 #################
+Fork Info:
+#################
+
+This fork of django newsletter adds a filer image field for articles in place of the standard image field
+
+#################
 django-newsletter
 #################
 

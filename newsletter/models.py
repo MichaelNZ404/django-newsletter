@@ -438,7 +438,7 @@ class Article(models.Model):
         verbose_name=_('link'), blank=True, null=True
     )
 
-    image = FilerImageField(blank=False, related_name="newsletters", on_delete=models.PROTECT)
+    image = FilerImageField(blank=True, null=True, related_name="newsletters", on_delete=models.PROTECT)
 
     # Message this article is associated with
     # TODO: Refactor post to message (post is legacy notation).
