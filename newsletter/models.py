@@ -14,6 +14,7 @@ from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ugettext
 from django.utils.timezone import now
+from filer.fields.image import FilerImageField
 
 from sorl.thumbnail import ImageField
 from distutils.version import LooseVersion
@@ -430,18 +431,14 @@ class Article(models.Model):
         verbose_name=_('sort order'), blank=True
     )
 
-    title = models.CharField(max_length=200, verbose_name=_('title'))
-    text = models.TextField(verbose_name=_('text'))
+    title = models.CharField(max_length=200, verbose_name=_('title'), blank=True, null=True)
+    text = models.TextField(verbose_name=_('text'), blank=True, null=True)
 
     url = models.URLField(
         verbose_name=_('link'), blank=True, null=True
     )
 
-    # Make this a foreign key for added elegance
-    image = ImageField(
-        upload_to='newsletter/images/%Y/%m/%d', blank=True, null=True,
-        verbose_name=_('image')
-    )
+    image = FilerImageField(blank=False, related_name="newsletters", on_delete=models.PROTECT)
 
     # Message this article is associated with
     # TODO: Refactor post to message (post is legacy notation).
