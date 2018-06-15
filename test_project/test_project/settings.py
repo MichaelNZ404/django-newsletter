@@ -3,7 +3,8 @@ test_dir = os.path.dirname(__file__)
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'foo'
     }
 }
 
@@ -17,7 +18,10 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'imperavi',
     'tinymce',
-    'newsletter'
+    'easy_thumbnails',
+    'filer',
+    'mptt',
+    'newsletter',
 ]
 
 # Imperavi is not compatible with Django 1.9+
@@ -32,7 +36,7 @@ MIDDLEWARE = [
 ]
 MIDDLEWARE_CLASSES = MIDDLEWARE  # Django < 1.10
 
-ROOT_URLCONF = 'test_project.urls'
+# ROOT_URLCONF = 'test_project.urls'
 
 FIXTURE_DIRS = [os.path.join(test_dir, 'fixtures'),]
 
